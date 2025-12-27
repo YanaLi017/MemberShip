@@ -1,5 +1,12 @@
 <script setup>
-
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const studentLogin = () => {
+  router.push({ name: 'studentlogin' });
+};
+const clubAdmin = () => {
+  router.push({ name: 'clubadmin' }); 
+}
 </script>
 
 <template>
