@@ -1,17 +1,3 @@
-<script setup>
-import { useRouter } from 'vue-router';
-const router = useRouter();
-const studentLogin = () => {
-  router.push({ name: 'studentlogin' });
-};
-const clubAdmin = () => {
-  router.push({ name: 'clubadmin' });
-};
-const signUp = () => {
-  router.push({ name: 'signup' });
-};
-</script>
-
 <template>
   <main>
 
@@ -22,13 +8,13 @@ const signUp = () => {
 
       <div class="option">
         <div  class="buttons">
-          <button @click="studentLogin" id="button">Student Login</button>
-          <button @click="clubAdmin" id="button">Club Admin</button>
+          <button id="button">Student Login</button>
+          <button id="button">Club Admin</button>
         </div>
 
         <div class="signup">
           <span>
-            Don't have an account? <span ><button @click="signUp" id="signupbtn">Sign up</button></span>
+            Don't have an account? <span ><button id="signupbtn">Sign up</button></span>
           </span>
         </div>
       </div>
@@ -36,6 +22,11 @@ const signUp = () => {
 
     </div>
 
+    <div class="modal">
+        <div class="modal-logo">
+            <img src="@/assets/logo.png" alt="modal-logo">
+        </div>
+    </div>
   </main>
 
 </template>
@@ -54,19 +45,23 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+
 }
 
 .card {
+position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 500px;
   height: 600px;
-  backdrop-filter: blur(5px);
+  filter: blur(3px);
   border-radius: 20px;
   background-color: #ffffff17;
   border: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 1;
 }
 
 .logo {
@@ -129,5 +124,21 @@ main {
 .club-admin:hover {
   background-color: #659399;
   cursor: pointer;
+}
+
+
+.modal{
+    width: 25vw;
+    height: 250px;
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    border-radius: 30px;
+    background-color: #1A3236;
+    justify-content: center;
+    align-items: center;
+}
+.modal-logo img{
+    width: 200px ;
 }
 </style>
