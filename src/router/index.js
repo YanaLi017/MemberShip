@@ -10,6 +10,22 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: '/signup',
+      name: 'signup',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/SignUp.vue'),
+    },
+    {
+      path: '/studentsignup',
+      name: 'studentsignup',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/StudentSignup.vue'),
+    },
+    {
       path: '/studentlogin',
       name: 'studentlogin',
       // route level code-splitting
@@ -26,22 +42,23 @@ const router = createRouter({
       component: () => import('../views/ClubAdmin.vue'),
     },
     {
-      path: '/signup',
-      name: 'signup',
+      path: '/clubsignup',
+      name: 'clubsignup',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/SignUp.vue'),
+      component: () => import('../views/ClubSignup.vue'),
+    },
+    {
+      path: '/clublogin',
+      name: 'clublogin',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ClubLogin.vue'),
     },
 
-    {
-      path: '/clubadminsignup',
-      name: 'clubadminsignup',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ClubAdminSignUp.vue'),
-    },
+
 
   ],
 })

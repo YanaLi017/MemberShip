@@ -4,8 +4,8 @@ const router = useRouter();
 const studentLogin = () => {
   router.push({ name: 'studentlogin' });
 };
-const clubAdmin = () => {
-  router.push({ name: 'clubadmin' });
+const clubLogin = () => {
+  router.push({ name: 'clublogin' });
 };
 const signUp = () => {
   router.push({ name: 'signup' });
@@ -23,7 +23,7 @@ const signUp = () => {
       <div class="option">
         <div  class="buttons">
           <button @click="studentLogin" id="button">Student Login</button>
-          <button @click="clubAdmin" id="button">Club Admin</button>
+          <button @click="clubLogin" id="button">Club Admin</button>
         </div>
 
         <div class="signup">
@@ -118,7 +118,7 @@ main {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: #f3f3f3;
+  color: #214444;
 }
 
 #button:hover {

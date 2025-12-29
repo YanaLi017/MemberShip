@@ -2,7 +2,7 @@
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const signUp = () => {
-  router.push({ name: 'studentsignup' });
+  router.push({ name: 'clubsignup' });
 };
 </script>
 
@@ -13,10 +13,10 @@ const signUp = () => {
       <img src="@/assets/logo.png" alt="Logo" id="logo">
     </div>
     <div class="card">
-      <h1>Student Login</h1>
+      <h1>Club Login</h1>
 
       <div class="form">
-        <input type="text" placeholder="Student ID">
+        <input type="text" placeholder="Club ID">
         <input type="text" placeholder="Password">
       </div>
 
