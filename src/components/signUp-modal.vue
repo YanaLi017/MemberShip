@@ -1,8 +1,13 @@
 <script setup>
 import { useRouter } from 'vue-router';
+
+const emit = defineEmits([
+    "close"
+])
 const router = useRouter();
+
 const homeView = () => {
-  router.push({ name: 'home' });
+  emit("close")
 };
 const studentSignUp = () => {
   router.push({ name: 'studentsignup' });
@@ -12,29 +17,9 @@ const clubSignUp = () => {
 };
 </script>
 <template>
-    <main>
-        <div class="card">
-            <div class="logo">
-                <img src="@/assets/logo.png" alt="Logo">
-            </div>
-
-            <div class="option">
-                <div class="buttons">
-                    <button id="button">Student Login</button>
-                    <button id="button">Club Admin</button>
-                </div>
-
-                <div class="signup">
-                    <span>
-                        Don't have an account? <span><button id="signupbtn">Sign up</button></span>
-                    </span>
-                </div>
-            </div>
 
 
-        </div>
-
-        <div class="modal-contianer">
+        <div class="modal-contianer" @click.self="homeView">
             <div class="modal">
                 <div>
                     <img src="@/assets/close.png" @click="homeView" alt="" id="close">
@@ -49,7 +34,6 @@ const clubSignUp = () => {
                 </div>
             </div>
         </div>
-    </main>
 
 </template>
 
@@ -69,8 +53,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-
+    position: absolute;
+    
 }
 
 .card {
@@ -153,6 +137,7 @@ button {
 }
 
 .modal-contianer {
+    background-color: rgba(0, 0, 0, 35%);
     position: absolute;
     display: flex;
     justify-content: center;
@@ -160,11 +145,12 @@ button {
     width: 100dvw;
     height: 100dvh;
     z-index: 2;
+    backdrop-filter: blur(3px);
 
 }
 
 .modal {
-    background-color: rgba(225, 225, 225, 0.8);
+    background-color: rgba(225, 225, 225, 1);
     width: 600px;
     height: 300px;
     border-radius: 15px;

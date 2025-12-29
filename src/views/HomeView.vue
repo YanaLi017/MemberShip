@@ -1,5 +1,9 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import signUpModal from '@/components/signUp-modal.vue';
+import { ref } from 'vue';
+const signUpMod = ref(false)  
+
 const router = useRouter();
 const studentLogin = () => {
   router.push({ name: 'studentlogin' });
@@ -8,8 +12,10 @@ const clubLogin = () => {
   router.push({ name: 'clublogin' });
 };
 const signUp = () => {
-  router.push({ name: 'signup' });
+  signUpMod.value = !signUpMod.value
 };
+
+
 </script>
 
 <template>
@@ -21,21 +27,21 @@ const signUp = () => {
       </div>
 
       <div class="option">
-        <div  class="buttons">
+        <div class="buttons">
           <button @click="studentLogin" id="button">Student Login</button>
           <button @click="clubLogin" id="button">Club Admin</button>
         </div>
 
         <div class="signup">
           <span>
-            Don't have an account? <span ><button @click="signUp" id="signupbtn">Sign up</button></span>
+            Don't have an account? <span><button @click="signUp" id="signupbtn" >Sign up</button></span>
           </span>
         </div>
       </div>
 
-
     </div>
 
+    <signUpModal v-if="signUpMod" @close="signUp"/>
   </main>
 
 </template>
@@ -78,7 +84,7 @@ main {
 
 }
 
-.option{
+.option {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,18 +113,22 @@ main {
   font-family: 'Poppins', sans-serif;
   border-radius: 35px;
 }
-.signup{
+
+.signup {
   padding-top: 10px;
 }
-.signup span,button{
+
+.signup span,
+button {
   font-size: medium;
 }
 
-#signupbtn{
+#signupbtn {
   background-color: transparent;
   border: none;
   cursor: pointer;
   color: #214444;
+  outline: none;
 }
 
 #button:hover {

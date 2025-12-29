@@ -9,24 +9,30 @@ const login = () => {
 <template>
     <main>
         <div class="card">
+            
             <div>
                 <img src="@/assets/logo.png" alt="Logo">
             </div>
+
             <div class="title">
                 <h1>Create Your Account</h1>
             </div>
+
             <div class="form">
                 <input type="text" placeholder="Full Name">
                 <input type="text" placeholder="Student ID">
             </div>
+
             <div class="form">
                 <input type="text" placeholder="Program">
                 <input type="text" placeholder="Campus">
             </div>
+
             <div class="form">
                 <input type="text" placeholder="Year Level">
                 <input type="text" placeholder="Section">
             </div>
+            
             <div class="form">
                 <input type="text" placeholder="Email">
                 <input type="text" placeholder="Password">
@@ -67,6 +73,7 @@ main {
     align-items: center;
     border-radius: 20px;
 }
+
 
 .title h1 {
     font-size: 30px;
