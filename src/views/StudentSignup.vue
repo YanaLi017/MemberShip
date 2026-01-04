@@ -8,7 +8,7 @@ const login = () => {
 
 <template>
     <main>
-        <div class="card">
+        <div class="student-card">
             
             <div>
                 <img src="@/assets/logo.png" alt="Logo">
@@ -18,22 +18,22 @@ const login = () => {
                 <h1>Create Your Account</h1>
             </div>
 
-            <div class="form">
+            <div class="student-form">
                 <input type="text" placeholder="Full Name">
                 <input type="text" placeholder="Student ID">
             </div>
 
-            <div class="form">
+            <div class="student-form">
                 <input type="text" placeholder="Program">
                 <input type="text" placeholder="Campus">
             </div>
 
-            <div class="form">
+            <div class="student-form">
                 <input type="text" placeholder="Year Level">
                 <input type="text" placeholder="Section">
             </div>
             
-            <div class="form">
+            <div class="student-form">
                 <input type="text" placeholder="Email">
                 <input type="text" placeholder="Password">
             </div>
@@ -62,7 +62,7 @@ main {
     align-items: center;
 }
 
-.card {
+.student-card {
     width: 50rem;
     height: 40rem;
     background-color: rgba(255, 255, 255, 0.4);
@@ -81,7 +81,7 @@ main {
     color: #214444;
 }
 
-.form {
+.student-form {
     display: flex;
     gap: 50px;
     margin-top: 15px;

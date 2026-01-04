@@ -8,22 +8,22 @@ const login = () => {
 
 <template>
     <main>
-        <div class="card">
+        <div class="club-card">
             <div>
                 <img src="@/assets/logo.png" alt="Logo">
             </div>
             <div class="title">
                 <h1>Create Your Account</h1>
             </div>
-            <div class="form">
+            <div class="club-form">
                 <input type="text" placeholder="Club Name">
                 <input type="text" placeholder="Club Acronym">
             </div>
-            <div class="form">
+            <div class="club-form">
                 <input type="text" placeholder="Campus">
                 <input type="text" placeholder="Program">
             </div>
-            <div class="form">
+            <div class="club-form">
                 <input type="text" placeholder="Club Email">
                 <input type="text" placeholder="Password">
             </div>
@@ -51,7 +51,7 @@ main {
     align-items: center;
 }
 
-.card {
+.club-card {
     width: 50rem;
     height: 40rem;
     background-color: rgba(255, 255, 255, 0.4);
@@ -69,7 +69,7 @@ main {
     color: #214444;
 }
 
-.form {
+.club-form {
     display: flex;
     gap: 50px;
     margin-top: 15px;

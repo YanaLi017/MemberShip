@@ -2,7 +2,7 @@
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const signUp = () => {
-  router.push({ name: 'studentsignup' });
+ router.push({ name: 'studentsignup' });
 };
 </script>
 

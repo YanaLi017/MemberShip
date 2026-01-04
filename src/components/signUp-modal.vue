@@ -18,7 +18,6 @@ const clubSignUp = () => {
 </script>
 <template>
 
-
         <div class="modal-contianer" @click.self="homeView">
             <div class="modal">
                 <div>
@@ -44,97 +43,6 @@ const clubSignUp = () => {
     font-family: 'Poppins', sans-serif;
 }
 
-main {
-    background-image: url('@/assets/bg .jpg');
-    width: 100dvw;
-    height: 100dvh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    
-}
-
-.card {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 500px;
-    height: 600px;
-    filter: blur(5px);
-    border-radius: 20px;
-    background-color: #ffffff17;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    z-index: 1;
-}
-
-.logo {
-    width: 300px;
-    height: 300px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-
-.option {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 150px;
-
-}
-
-.buttons {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-#button {
-    width: 200px;
-    height: 50px;
-    justify-content: center;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    background-color: #214444;
-    border: none;
-    font-size: 18px;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 35px;
-}
-
-.signup {
-    padding-top: 10px;
-}
-
-.signup span,
-button {
-    font-size: medium;
-}
-
-#signupbtn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: #f3f3f3;
-}
-
-#button:hover {
-    background-color: #659399;
-    cursor: pointer;
-}
-
-.club-admin:hover {
-    background-color: #659399;
-    cursor: pointer;
-}
 
 .modal-contianer {
     background-color: rgba(0, 0, 0, 35%);
