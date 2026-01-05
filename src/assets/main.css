@@ -3,6 +3,7 @@
 
 
 #app {
-  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
   font-weight: normal;
 }

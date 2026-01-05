@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '../components/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -49,8 +49,8 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ClubLogin.vue'),
     },
-    {
-      path: '/student/dashboard',
+     {
+      path: '/studentdashboard',
       name: 'studentdashboard',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
@@ -58,15 +58,37 @@ const router = createRouter({
       component: () => import('../views/StudentDashboard.vue'),
     },
     {
-      path: '/clubadmindashboard',
-      name: 'clubadmindashboard',
+      path: '/dashboard',
+      name: 'dashboard',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ClubAdminDashboard.vue'),
+      component: () => import('../components/Dashboard.vue'),
     },
-
-
+    {
+      path: '/digitalcard',
+      name: 'digitalcard',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../components/DigitalID.vue'),
+    },
+    {
+      path: '/myclubs',
+      name: 'myclubs',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../components/MyClubs.vue'),
+    },
+    {
+      path: '/myclubs',
+      name: 'myclubs',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../components/MyClubs.vue'),
+    },
   ],
 })
 
