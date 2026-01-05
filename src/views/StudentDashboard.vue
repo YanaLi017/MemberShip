@@ -18,8 +18,8 @@ const isHoverOut = (dashcolor) => {
 <template>
 
     <div class="student-dashboard">
-        <sideBar class="sidebar-menu">
-            <template v-slot:student-sidebar>
+        <aside class="sidebar-menu">
+            
                 <img src="@/assets/logo.png" alt="">
 
                 <div class="menu-container" >
@@ -35,8 +35,8 @@ const isHoverOut = (dashcolor) => {
                     </div>
                 </div>
 
-            </template>
-        </sideBar>
+          
+        </aside>
 
 
         <main>
@@ -60,7 +60,7 @@ const isHoverOut = (dashcolor) => {
 }
 
 .sidebar-menu {
-    width: 300px;
+    width: 500px;
     background-color: rgba(255, 255, 255, 0.5);
 
 }

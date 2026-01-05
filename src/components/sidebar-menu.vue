@@ -1,14 +1,16 @@
 <template>
     <div class="sidebar-menu">
-        <slot name="student-sidebar">
+        <aside>
+            <slot name="student-sidebar">
 
-        </slot>
+            </slot>
+        </aside>
     </div>
 </template>
 <style scoped>
 .sidebar-menu {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
-
 </style>
