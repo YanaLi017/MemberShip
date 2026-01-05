@@ -49,17 +49,14 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ClubLogin.vue'),
     },
-    {
-      path: '/student/dashboard',
+     {
+      path: '/studentdashboard',
       name: 'studentdashboard',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/StudentDashboard.vue'),
     },
-    
-
-
   ],
 })
 
