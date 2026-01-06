@@ -1,7 +1,7 @@
 <template>
   <div class="datetime">
     <div class="time">{{ time }}</div>
-    <div class="date">{{ date }}</div>
+    <div class="date">{{ date }}<br>(GMT +8)</div>
   </div>
 </template>
 

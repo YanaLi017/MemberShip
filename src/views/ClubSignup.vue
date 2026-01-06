@@ -1,9 +1,14 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import { ref } from 'vue';
+
 const router = useRouter();
 const login = () => {
-  router.push({ name: 'home' });
+    router.push({ name: 'home' });
 };
+
+const password = ref('');
+const showPassword = ref(false); // Controls the visibility
 </script>
 
 <template>
@@ -25,11 +30,30 @@ const login = () => {
             </div>
             <div class="club-form">
                 <input type="text" placeholder="Club Email">
-                <input type="text" placeholder="Password">
+                <div class="input-container">
+                    <input :type="showPassword ? 'text' : 'password'" id="password" v-model="password"
+                        placeholder="Password">
+                    <button type="button" @click="showPassword = !showPassword" class="toggle-btn">
+                        <svg v-if="!showPassword" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-width="2"
+                                d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                            <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+
+                        <svg v-else class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3.933 13.909A4.357 4.357 0 0 1 3 12c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 21 12c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M5 19 19 5m-4 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+
+
+                    </button>
+                </div>
             </div>
             <div class="signup">
                 <button id="signupBtn">Join the MemberShip </button>
-                <span>Already have an account? <button id="" @click="login">Login</button></span> 
+                <span>Already have an account? <button id="" @click="login">Login</button></span>
             </div>
         </div>
     </main>
@@ -37,9 +61,11 @@ const login = () => {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     font-family: 'Poppins', sans-serif;
 }
+
 main {
     background-image: url('@/assets/bg .jpg');
     width: 100dvw;
@@ -94,6 +120,7 @@ input {
     padding-top: 50px;
     padding-bottom: 30px;
 }
+
 #signupBtn {
     width: 300px;
     height: 50px;
@@ -104,6 +131,7 @@ input {
     font-size: 20px;
     cursor: pointer;
 }
+
 #signupBtn:hover {
     background-color: #659399;
 }
@@ -114,5 +142,20 @@ button {
     color: #214444;
     cursor: pointer;
     font-size: 15px;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-btn {
+    margin-top: 5px;
+    position: absolute;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 </style>
