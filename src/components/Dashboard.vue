@@ -79,7 +79,7 @@
 .content {
     width: 95%;
     height: 40%;
-    margin-top: 20px;
+    margin-top: 40px;
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.14);
     border-radius: 20px;
@@ -235,7 +235,7 @@ span {
 .lower-section {
     width: 95%;
     height: 30%;
-    margin-top: 20px;
+    margin-top: 40px;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
@@ -245,10 +245,10 @@ span {
 .date-time {
     width: 50%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.14);
+    background-color: rgba(219, 228, 228,1);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    border: solid 2px rgba(255, 255, 255, 0.5);
+    border: solid 2px #214444;
     display: flex;
     justify-content: center;
     align-items: center;

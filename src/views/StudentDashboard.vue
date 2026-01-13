@@ -118,7 +118,7 @@ const nav = (mode) => {
             <div class="header">
 
                 <input type="text" name="" id="" placeholder="Search" />
-                <div style="display: flex; gap: 50px;">
+                <div style="display: flex; gap: 50px; align-items: center;">
                     <h1>Welcome back, Student!</h1> <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
                         viewBox="0 0 640 640" fill="#214444">Font Awesome Free v7.1.0 by @fontawesome -
                         https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026
@@ -132,8 +132,8 @@ const nav = (mode) => {
 
             <dashboard v-if="component1" />
             <MyClubs v-if="component2" />
-            <DigitalID v-if="component3" />
-            <MyParticipation v-if="component4" />
+            <DigitalID v-if="component4" />
+            <MyParticipation v-if="component3" />
         </div>
     </main>
 
@@ -205,6 +205,7 @@ main {
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border: solid 2px #214444;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
