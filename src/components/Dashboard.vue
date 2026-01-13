@@ -4,6 +4,7 @@
 </script>
 
 <template>
+
     <!-- Main content area -->
     <div class="content">
 
@@ -248,7 +249,7 @@ span {
     background-color: rgba(219, 228, 228,1);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    border: solid 2px #214444;
+    border: solid 2px #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;

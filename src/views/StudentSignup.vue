@@ -1,14 +1,49 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
+import axios from 'axios';
 
 const router = useRouter();
+
 const login = () => {
     router.push({ name: 'home' });
 };
 
 const password = ref('');
 const showPassword = ref(false); // Controls the visibility
+
+// Variables to hold form data
+const fullName = ref('');
+const studentId = ref('');
+const program = ref('');
+const campus = ref('');
+const yearLevel = ref('');
+const section = ref('');
+const email = ref('');
+
+// The function that sends data to your backend
+const handleSignup = async () => {
+    try {
+        const payload = {
+            fullName: fullName.value,
+            studentId: studentId.value,
+            program: program.value,
+            campus: campus.value,
+            yearLevel: yearLevel.value,
+            section: section.value,
+            email: email.value,
+            password: password.value
+        };
+
+        const response = await axios.post('http://localhost:3000/api/student/signup', payload);
+
+        alert(response.data.message); // "Welcome to the Membership!"
+        router.push({ name: 'studentlogin' }); // Redirect to login page
+    } catch (error) {
+        console.error(error);
+        alert(error.response?.data?.error || "Signup failed");
+    }
+};
 </script>
 
 <template>
@@ -24,37 +59,37 @@ const showPassword = ref(false); // Controls the visibility
             </div>
 
             <div class="student-form">
-                <input type="text" placeholder="Full Name">
-                <input type="text" placeholder="Student ID">
+                <input type="text" v-model="fullName" placeholder="Full Name">
+                <input type="text" v-model="studentId" placeholder="Student ID">
             </div>
 
             <div class="student-form">
-                <input type="text" placeholder="Program">
-                <input type="text" placeholder="Campus">
+                <input type="text" v-model="program" placeholder="Program">
+                <input type="text" v-model="campus" placeholder="Campus">
             </div>
 
             <div class="student-form">
-                <input type="text" placeholder="Year Level">
-                <input type="text" placeholder="Section">
+                <input type="text" v-model="yearLevel" placeholder="Year Level">
+                <input type="text" v-model="section" placeholder="Section">
             </div>
 
             <div class="student-form">
-                <input type="text" placeholder="Email">
+                <input type="text" v-model="email" placeholder="Email">
                 <div class="input-container">
                     <input :type="showPassword ? 'text' : 'password'" id="password" v-model="password"
                         placeholder="Password">
                     <button type="button" @click="showPassword = !showPassword" class="toggle-btn">
                         <svg v-if="!showPassword" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-width="2"
-                                d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
-                            <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3.933 13.909A4.357 4.357 0 0 1 3 12c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 21 12c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M5 19 19 5m-4 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         </svg>
 
                         <svg v-else class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3.933 13.909A4.357 4.357 0 0 1 3 12c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 21 12c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M5 19 19 5m-4 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            <path stroke="currentColor" stroke-width="2"
+                                d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                            <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         </svg>
 
 
@@ -63,7 +98,7 @@ const showPassword = ref(false); // Controls the visibility
             </div>
 
             <div class="signup">
-                <button id="signupBtn">Join the MemberShip </button>
+                <button id="signupBtn" @click="handleSignup">Join the MemberShip </button>
                 <span>Already have an account? <button id="" @click="login">Login</button></span>
             </div>
         </div>
@@ -155,17 +190,17 @@ button {
 }
 
 .input-container {
-  position: relative;
-  display: flex;
-  align-items: center;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .toggle-btn {
-  margin-top: 5px;
-  position: absolute;
-  right: 5px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+    margin-top: 5px;
+    position: absolute;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 </style>

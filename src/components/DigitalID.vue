@@ -146,7 +146,7 @@ img {
     display: flex;
     margin-bottom: 30px;
     align-items: center;
-    width: 45%;
+    width: 55%;
     height: 8%;
     justify-content: space-between;
     padding-right: 20px;
@@ -160,6 +160,7 @@ img {
     font-size: 1rem;
     font-weight: 600;
     color: #002d40;
+    width: auto;
     box-shadow: -2px 4px 8px rgba(0, 0, 0, 0.9);
 }
 

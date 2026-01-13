@@ -3,15 +3,33 @@ import dashboard from '@/components/Dashboard.vue';
 import MyClubs from '@/components/MyClubs.vue';
 import DigitalID from '@/components/DigitalID.vue';
 import MyParticipation from '@/components/MyParticipation.vue';
+import profileSettings from '@/components/Profile.vue';
 
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
+const fullName = ref('Student'); // Default value if nothing is found
+
+// This runs as soon as the dashboard loads
+onMounted(() => {
+    const savedName = localStorage.getItem('loggedStudentName');
+    if (savedName) {
+        fullName.value = savedName;
+    }
+});
+
+const logout = () => {
+    // Clear the stored name
+    localStorage.removeItem('loggedStudentName');
+    // Redirect to login page
+    window.location.href = '/'; // Adjust the path as needed
+}
 const hovered = ref(false);
 
 const component1 = ref(true);
 const component2 = ref(false);
 const component3 = ref(false);
 const component4 = ref(false);
+const component5 = ref(false);
 
 const nav = (mode) => {
     switch (mode) {
@@ -20,6 +38,7 @@ const nav = (mode) => {
             component2.value = false;
             component3.value = false;
             component4.value = false;
+            component5.value = false;
             console.log('dashboard')
             break;
         case ('myClubs'):
@@ -27,6 +46,7 @@ const nav = (mode) => {
             component2.value = true;
             component3.value = false;
             component4.value = false;
+            component5.value = false;
             console.log('myClubs')
             break;
         case ('participation'):
@@ -34,6 +54,7 @@ const nav = (mode) => {
             component2.value = false;
             component3.value = true;
             component4.value = false;
+            component5.value = false;
             console.log('participation')
             break;
         case ('id'):
@@ -41,7 +62,16 @@ const nav = (mode) => {
             component2.value = false;
             component3.value = false;
             component4.value = true;
+            component5.value = false;
             console.log('id')
+            break;
+        case ('profileSettings'):
+            component1.value = false;
+            component2.value = false;
+            component3.value = false;
+            component4.value = false;
+            component5.value = true;
+            console.log('profileSettings')
             break;
     }
 }
@@ -107,7 +137,7 @@ const nav = (mode) => {
                         <path
                             d="M569 337C578.4 327.6 578.4 312.4 569 303.1L425 159C418.1 152.1 407.8 150.1 398.8 153.8C389.8 157.5 384 166.3 384 176L384 256L272 256C245.5 256 224 277.5 224 304L224 336C224 362.5 245.5 384 272 384L384 384L384 464C384 473.7 389.8 482.5 398.8 486.2C407.8 489.9 418.1 487.9 425 481L569 337zM224 160C241.7 160 256 145.7 256 128C256 110.3 241.7 96 224 96L160 96C107 96 64 139 64 192L64 448C64 501 107 544 160 544L224 544C241.7 544 256 529.7 256 512C256 494.3 241.7 480 224 480L160 480C142.3 480 128 465.7 128 448L128 192C128 174.3 142.3 160 160 160L224 160z" />
                     </svg>
-                    <span>Logout</span>
+                    <span><button @click="logout" id="logout">Logout</button></span>
                 </div>
             </div>
         </div>
@@ -117,16 +147,18 @@ const nav = (mode) => {
             <!-- Header section with search bar and user info -->
             <div class="header">
 
-                <input type="text" name="" id="" placeholder="Search" />
                 <div style="display: flex; gap: 50px; align-items: center;">
-                    <h1>Welcome back, Student!</h1> <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
-                        viewBox="0 0 640 640" fill="#214444">Font Awesome Free v7.1.0 by @fontawesome -
-                        https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026
-                        Fonticons,
-                        Inc.-->
-                        <path
-                            d="M470.5 463.6C451.4 416.9 405.5 384 352 384L288 384C234.5 384 188.6 416.9 169.5 463.6C133.9 426.3 112 375.7 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320C528 375.7 506.1 426.2 470.5 463.6zM430.4 496.3C398.4 516.4 360.6 528 320 528C279.4 528 241.6 516.4 209.5 496.3C216.8 459.6 249.2 432 288 432L352 432C390.8 432 423.2 459.6 430.5 496.3zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM320 304C297.9 304 280 286.1 280 264C280 241.9 297.9 224 320 224C342.1 224 360 241.9 360 264C360 286.1 342.1 304 320 304zM232 264C232 312.6 271.4 352 320 352C368.6 352 408 312.6 408 264C408 215.4 368.6 176 320 176C271.4 176 232 215.4 232 264z" />
-                    </svg>
+                    <h1>Welcome back, {{ fullName }}</h1>
+                    <button id="profile" @click="nav('profileSettings')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 640 640"
+                            fill="#214444">Font Awesome Free v7.1.0 by @fontawesome -
+                            https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026
+                            Fonticons,
+                            Inc.-->
+                            <path
+                                d="M470.5 463.6C451.4 416.9 405.5 384 352 384L288 384C234.5 384 188.6 416.9 169.5 463.6C133.9 426.3 112 375.7 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320C528 375.7 506.1 426.2 470.5 463.6zM430.4 496.3C398.4 516.4 360.6 528 320 528C279.4 528 241.6 516.4 209.5 496.3C216.8 459.6 249.2 432 288 432L352 432C390.8 432 423.2 459.6 430.5 496.3zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM320 304C297.9 304 280 286.1 280 264C280 241.9 297.9 224 320 224C342.1 224 360 241.9 360 264C360 286.1 342.1 304 320 304zM232 264C232 312.6 271.4 352 320 352C368.6 352 408 312.6 408 264C408 215.4 368.6 176 320 176C271.4 176 232 215.4 232 264z" />
+                        </svg>
+                    </button>
                 </div>
             </div>
 
@@ -134,6 +166,7 @@ const nav = (mode) => {
             <MyClubs v-if="component2" />
             <DigitalID v-if="component4" />
             <MyParticipation v-if="component3" />
+            <profileSettings v-if="component5" />
         </div>
     </main>
 
@@ -179,6 +212,16 @@ img {
     background-color: rgba(255, 255, 255, 0.14);
 }
 
+#logout {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    padding: 0;
+}
+
 /* Main Container CSS */
 main {
     background-image: url('@/assets/bg .jpg');
@@ -208,25 +251,29 @@ main {
     border: solid 2px #214444;
     border-radius: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     padding: 40px;
 
-}
-
-.header input {
-    width: 40%;
-    height: 30px;
-    border-radius: 10px;
-    border: solid 2px rgba(0, 0, 0, 0.3);
-    font-size: 15px;
-    padding: 10px;
-    outline: var('#214444');
 }
 
 .header h1 {
     font-size: 30px;
     font-weight: 600;
     color: #214444;
+}
+
+#profile {
+    background: none;
+    width: auto;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    border-radius: 100px;
+}
+
+#profile:hover{
+    box-shadow: 0 0 20px rgba(33, 68, 68, 0.8); 
 }
 </style>
