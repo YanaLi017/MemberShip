@@ -77,7 +77,7 @@ const nav = (mode) => {
 
                 <div class="menu-item" @mouseenter="hovered = 2" @mouseleave="hovered = null"
                     :style="{ color: hovered === 2 ? '#214444' : '#ffffff' }" @click="nav('participation')">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 640 640"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 640 640"
                         fill="currentColor">Font Awesome Free v7.1.0 by @fontawesome -
                         https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons,
                         Inc.-->
