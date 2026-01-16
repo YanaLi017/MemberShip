@@ -4,6 +4,7 @@ import memberlist from '@/components/MemberList.vue';
 import report from '@/components/Report.vue';
 import clubsettings from '@/components/ClubSettings.vue';
 
+
 import { ref } from 'vue';
 
 const hovered = ref(false);
@@ -135,6 +136,8 @@ const nav = (mode) => {
             <report v-if="component3" />
             <clubsettings v-if="component4" />
         </div>
+
+       
     </main>
 
 </template>
@@ -228,4 +231,6 @@ main {
     font-weight: 600;
     color: #214444;
 }
+
+
 </style>
